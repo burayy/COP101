@@ -1,0 +1,397 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-display: swap;
+    padding-top: 12px;
+    /* height: 130vh; */
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2 {
+    font-size: 32px;
+    text-align: center;
+}
+
+
+
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px;
+    gap: 32px;
+}
+
+.status,
+.controls {
+    min-width: 300px;
+    min-height: 600px;
+    border: 2px solid black;
+}
+
+
+/* status */
+
+.status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding-top: 24px;
+}
+
+.fish-counter {
+    margin: 0px;
+    font-size: 1rem;
+    color: #000;
+}
+
+/* Pond Section */
+
+.pond {
+    background-image: url(assets/Retina/backround-image/bg1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-width: 900px;
+    min-height: 600px;
+    border: 2px solid black;
+    position: relative;
+    overflow: hidden;
+    /* Ensures fish don’t overflow outside the pond */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.fish {
+    width: 64px;
+    /* Size of the fish */
+    height: 64px;
+    background-image: url('assets/Retina/fishTile_072.png');
+    /* Replace with actual fish icon */
+    background-size: cover;
+    position: absolute;
+    transform: scaleX(-1);
+    animation: swimRight 10s linear infinite;
+}
+
+.food {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background-color: #ff6347; /* Food color */
+    border-radius: 50%;
+    opacity: 0.8;
+    transition: all 2s ease;
+  }
+  
+
+/* Fish swimming animation (Left to Right) */
+@keyframes swimRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(100vw);
+    }
+
+    /* Swim all the way to the right */
+}
+
+/* .fish-group-one .fish[data-health="healthy"] {
+    filter: brightness(1.2);
+    opacity: 1;
+}
+
+.fish-group-one .fish[data-health="unhealthy"] {
+    filter: grayscale(80%);
+    opacity: 0.6;
+}
+
+
+.fish-group-one .fish:nth-child(1) {
+    top: 20px;
+    left: 30px;
+}
+
+.fish-group-one .fish:nth-child(2) {
+    top: 100px;
+    left: 80px;
+}
+
+.fish-group-one .fish:nth-child(3) {
+    top: 150px;
+    left: 200px;
+}
+
+
+.fish-group-two .fish[data-health="healthy"] {
+    filter: brightness(1.4); 
+}
+
+
+.fish-group-two .fish[data-health="unhealthy"] {
+    filter: sepia(100%); 
+    opacity: 0.7;
+}
+
+
+.fish-group-two .fish:nth-child(1) {
+    top: 50px;
+    left: 250px;
+}
+
+.fish-group-two .fish:nth-child(2) {
+    top: 130px;
+    left: 300px;
+}
+
+.fish-group-two .fish:nth-child(3) {
+    top: 180px;
+    left: 100px;
+} */
+
+
+/* controls */
+
+.button-con button {
+    width: 100px;
+    height: 50px;
+    font-size: 12px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(16, 155, 215);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: rgba(16, 155, 215, 0.808);
+}
+
+#fish-count-input {
+    width: 100px;
+    height: 50px;
+    border-radius: 4px;
+    border: 1px solid #000000da;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding-top: 24px;
+}
+
+.button-con {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    padding: 12px;
+    gap: 12px;
+}
+
+.water-param {
+    display: flex;
+    flex-direction: column;
+}
+
+.param-con {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    padding: 12px;
+    gap: 12px;
+}
+
+label {
+    font-size: 14px;
+}
+
+/* date-time */
+.header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 12px;
+    margin: 4px;
+}
+
+.header h1 {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0;
+}
+
+.header h2 {
+    margin: 0;
+}
+
+#date-time-display {
+    text-align: right;
+    color: #000;
+}
+
+/* Console */
+
+.btn-con {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-toggle-console {
+    padding: 12px;
+    margin: 4px;
+    color: #fff;
+    background-color: rgb(16, 155, 215);
+    border:0px none;
+    border-radius: 4px;
+}
+
+.console {
+    display: none;
+    font-family: 'Courier New', monospace;
+    background-color: #282c34;
+    color: #61dafb;
+    padding: 20px;
+    border: 2px solid #61dafb;
+    width: 700px;
+    height: 350px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+#messages {
+    max-height: 274px;
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column; 
+    gap: 6px;
+    background-color: #21252b;
+}
+
+.tabs button:first-child:focus {
+    background-color: #61dafb;
+    color: #000;
+}
+.tabs button:nth-child(2):focus {
+    background-color: #61dafb;
+    color: #000;
+}
+.tabs button:nth-child(3):focus {
+    background-color: #61dafb;
+    color: #000;
+}
+
+#messages div {
+    padding: 8px;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.tabs button {
+    background-color: #333;
+    color: #d4d4d4;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+.tabs button:hover {
+    background-color: #555;
+}
+
+.tab-content {
+    display: none;
+    padding: 10px;
+    background-color: #252526;
+    margin-top: 5px;
+    height: 274px;
+    overflow-y: auto;
+    border: 1px solid #444;
+}
+
+.tab-content p {
+    margin: 0;
+    padding: 2px 0;
+}
+
+#ai-assistant {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 274px;
+}
+
+#ai-assistant-input {
+    display: flex;
+    gap: 5px;
+    padding-top: 10px;
+}
+
+#ai-assistant-input input {
+    flex: 1;
+    padding: 5px;
+    font-family: monospace;
+    font-size: 14px;
+    background-color: #333;
+    color: #d4d4d4;
+    border: 1px solid #444;
+}
+
+#ai-assistant-input button {
+    padding: 6px 10px;
+    background-color: #333;
+    color: #d4d4d4;
+    border: 1px solid #444;
+    cursor: pointer;
+}
+
+#ai-assistant-input button:hover {
+    background-color: #555;
+}
+
+ /* Message Classification Styles */
+ .info {
+    color: #b3d9ff; /* Light blue for info messages */
+ }
+ .warning {
+    color: #ffcc00; /* Yellow for warnings */
+ }
+ .error {
+    color: #ff6666; /* Red for errors */
+ }
+
+ 
+ 
